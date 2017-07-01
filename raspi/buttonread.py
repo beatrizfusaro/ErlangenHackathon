@@ -32,9 +32,9 @@ GPIO.setup(channel_next, GPIO.IN)
 GPIO.setup(channel_back, GPIO.IN)
 GPIO.setup(channel_ok, GPIO.IN)
 
-GPIO.add_event_detect(channel_next, GPIO.RISING, callback=button_pressed_next, bouncetime=100)
-GPIO.add_event_detect(channel_back, GPIO.RISING, callback=button_pressed_back, bouncetime=100)
-GPIO.add_event_detect(channel_ok, GPIO.RISING, callback=button_pressed_ok, bouncetime=100)
+GPIO.add_event_detect(channel_next, GPIO.FALLING, callback=button_pressed_next, bouncetime=100)
+GPIO.add_event_detect(channel_back, GPIO.FALLING, callback=button_pressed_back, bouncetime=100)
+GPIO.add_event_detect(channel_ok, GPIO.FALLING, callback=button_pressed_ok, bouncetime=100)
 
 
 # main loop
@@ -44,9 +44,11 @@ while True:
     if 1 is not 0:
         pass
     
+
     #if GPIO.event_detected(channel_next):
      #   print('Button pressed')
 #    input_state = GPIO.input(channel_next)
 #    if input_state == False:
 #        print('Button Pressed')
 #        time.sleep(1)
+
