@@ -89,14 +89,11 @@ class MotorControl:
        
         self.update_dutycycles_s_t(duty_s, duty_t)
        
+    def press(self):
         self.p.ChangeDutyCycle(12.5)
         time.sleep(1)
         self.p.ChangeDutyCycle(2.5)
         time.sleep(0.5)
-        #self.t.ChangeDutyCycle(5)
-        #self.s.ChangeDutyCycle(5)
-        
-        self.update_dutycycles_s_t(5, 5)
        
     
 servo_1 = MotorControl(1)
