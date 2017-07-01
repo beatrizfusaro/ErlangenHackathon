@@ -8,7 +8,7 @@ step_time = 0.01
 
 class MotorControl:
 
-    def __init__(self, radius):
+    def __init__(self):
         GPIO.setwarnings(False)             # do not show any warnings
         GPIO.setmode (GPIO.BCM) 
                                             # programming the GPGPIO by BCM pin numbers. (like PIN29 as‘GPGPIO5’)
@@ -27,8 +27,6 @@ class MotorControl:
         self.t.start(self.dutycycle_t)
         self.s.start(self.dutycycle_s)
         self.p.start(self.dutycycle_p)
-        
-        self.r = radius
 
     def cleanup_servos(self):
         self.update_dutycycles_s_t(5, 5)
@@ -75,17 +73,25 @@ class MotorControl:
             time.sleep(step_time)
         
 
-    def move(self, x, y):
-        angle = 180.0 * x / (3.14 * self.r)
+    def move(self, x, y): #max x and y = 3.14 each
+        angle = 180.0 * x / (3.14)
         print ("Angle X: " +str(angle))
-        duty_t = float(angle) / 10.0 + 2.5
-        print("Duty X: " + str(duty_t))
+        if angle > 180:
+            duty_t = 180 / 10.0 + 2.5
+            print("Duty X: " + str(duty_t))
+        else
+            duty_t = float(angle) / 10.0 + 2.5
+            print("Duty X: " + str(duty_t))
 
-        angle = 180.0 * y / 3.14 / self.r
+        angle = 180.0 * y / 3.14 
         print ("Angle Y: " +str(angle))
-        duty_s = float(angle) / 10.0 + 2.5
-        print("Duty Y: " + str(duty_s))
-        #self.s.ChangeDutyCycle(duty)
+        if angle > 180:
+            duty_s = 180 / 10.0 + 2.5
+            print("Duty X: " + str(duty_t))
+        else
+            duty_s = float(angle) / 10.0 + 2.5
+            print("Duty X: " + str(duty_t))
+
        
         self.update_dutycycles_s_t(duty_s, duty_t)
        
