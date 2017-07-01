@@ -79,7 +79,7 @@ class MotorControl:
         if angle > 180:
             duty_t = 180 / 10.0 + 2.5
             print("Duty X: " + str(duty_t))
-        else
+        else:
             duty_t = float(angle) / 10.0 + 2.5
             print("Duty X: " + str(duty_t))
 
@@ -88,7 +88,7 @@ class MotorControl:
         if angle > 180:
             duty_s = 180 / 10.0 + 2.5
             print("Duty X: " + str(duty_t))
-        else
+        else:
             duty_s = float(angle) / 10.0 + 2.5
             print("Duty X: " + str(duty_t))
 
