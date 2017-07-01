@@ -8,6 +8,7 @@ camera = PiCamera()
 
 camera.start_preview()
 sleep(1)
-camera.capture('/home/pi/image_{:%Y-%m-%d_%H:%M:%S}.jpg'.format(datetime.datetime.now()))
+camera.capture('/var/www/html/images/image_{:%Y-%m-%d_%H:%M:%S}.jpg'.format(datetime.datetime.now()))
 camera.stop_preview()
 
+print("CAMERA_SCRIPT")

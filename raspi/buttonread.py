@@ -10,19 +10,33 @@ channel_back = 20
 channel_ok = 21
 
 
+#Path to file for buttons
+
+filepath="/var/www/html/buttons_pressed.txt"
+
+
 # callbacks for GPIO-action
 
 def button_pressed_next(channel):
     print("Next Button pressed!")
-    
-    
+    f=open(filepath,'w')
+    f.write("0")
+    f.close()
+    return
+        
 def button_pressed_back(channel):
     print("Back Button pressed!")
-    
+    f=open(filepath,'w')
+    f.write("1")
+    f.close()
+    return    
     
 def button_pressed_ok(channel):
     print("OK Button pressed!")
-
+    f=open(filepath,'w')
+    f.write("2")
+    f.close()
+    return
 
 # Setting up the GPIOs
 
@@ -44,7 +58,6 @@ while True:
     if 1 is not 0:
         pass
     
-
     #if GPIO.event_detected(channel_next):
      #   print('Button pressed')
 #    input_state = GPIO.input(channel_next)
