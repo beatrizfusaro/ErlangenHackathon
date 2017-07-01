@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+
+import RPi.GPIO as GPIO
+import time
+
+# declare the GPIO-channels
+
+channel_next = 16
+channel_back = 20
+channel_ok = 21
+
+
+# callbacks for GPIO-action
+
+def button_pressed_next(channel):
+    print("Next Button pressed!")
+    
+    
+def button_pressed_back(channel):
+    print("Back Button pressed!")
+    
+    
+def button_pressed_ok(channel):
+    print("OK Button pressed!")
+
+
+# Setting up the GPIOs
+
+GPIO.setmode(GPIO.BCM)
+
+GPIO.setup(channel_next, GPIO.IN)
+GPIO.setup(channel_back, GPIO.IN)
+GPIO.setup(channel_ok, GPIO.IN)
+
+GPIO.add_event_detect(channel_next, GPIO.RISING, callback=button_pressed_next, bouncetime=100)
+GPIO.add_event_detect(channel_back, GPIO.RISING, callback=button_pressed_back, bouncetime=100)
+GPIO.add_event_detect(channel_ok, GPIO.RISING, callback=button_pressed_ok, bouncetime=100)
+
+
+# main loop
+
+while True:
+    
+    if 1 is not 0:
+        pass
+    
+    #if GPIO.event_detected(channel_next):
+     #   print('Button pressed')
+#    input_state = GPIO.input(channel_next)
+#    if input_state == False:
+#        print('Button Pressed')
+#        time.sleep(1)
