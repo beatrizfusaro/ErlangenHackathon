@@ -2,4 +2,4 @@
 
 #echo "$@"
 
-python3 testMotor.py "$@"
+python3 /home/pi/bin/testMotor.py "$@"
