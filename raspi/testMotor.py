@@ -115,7 +115,7 @@ try:
 
     time.sleep(1)
 
-    servo_1.move(x/720*3 + 1, y/480*3 + 1)
+    servo_1.move(x/720*14 + 1, y/480*9 + 1)
     #
     time.sleep(1)
     if pr == "True":
