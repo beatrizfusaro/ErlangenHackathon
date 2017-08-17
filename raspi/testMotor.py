@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import RPi.GPIO as GPIO
+from math import acos, degrees
 import time
 
 step_size = 0.1
